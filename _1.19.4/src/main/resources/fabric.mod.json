@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "aow",
+  "version": "${version}",
+  "name": "AlwaysOpenWater",
+  "description": "Keep the water always open!",
+  "authors": [
+    "Enaium"
+  ],
+  "contact": {
+    "homepage": "https://github.com/Enaium-FabricMC/AlwaysOpenWater",
+    "sources": "https://github.com/Enaium-FabricMC/AlwaysOpenWater"
+  },
+  "license": "MIT",
+  "icon": "assets/aow/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "cn.enaium.aow.AlwaysOpenWater"
+    ]
+  },
+  "mixins": [
+    "aow.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": "1.19.x",
+    "fabric-api": "*",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
