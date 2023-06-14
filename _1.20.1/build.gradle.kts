@@ -1,5 +1,3 @@
-version = "${property("minecraft.version")}-${version}"
-
 tasks.withType<JavaCompile> {
     options.release.set(17)
 }

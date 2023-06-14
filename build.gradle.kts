@@ -53,6 +53,8 @@ subprojects {
         archivesName.set(archivesBaseName)
     }
 
+    version = "${property("minecraft.version")}-${version}"
+
     tasks.processResources {
         inputs.property("version", project.version)
 
@@ -75,6 +77,15 @@ subprojects {
     dependencies.add("mappings", "net.fabricmc:yarn:${property("fabric.yarn.version")}:v2")
     dependencies.add("modImplementation", "net.fabricmc:fabric-loader:${property("fabric.loader.version")}")
     dependencies.add("modImplementation", "net.fabricmc.fabric-api:fabric-api:${property("fabric.api.version")}")
+
+    property("java.version").toString().toInt().let {
+        tasks.withType<JavaCompile> {
+            options.release.set(it)
+        }
+
+        java.sourceCompatibility = JavaVersion.toVersion(it)
+        java.targetCompatibility = JavaVersion.toVersion(it)
+    }
 
     afterEvaluate {
         properties["modrinth.token"]?.let {
